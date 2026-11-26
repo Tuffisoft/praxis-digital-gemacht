@@ -196,8 +196,8 @@
     @apply font-sans;
   }
   html {
-    /* 18px base: everything sized in rem grows with it, and with the visitor's browser setting. */
-    font-size: 112.5%;
+    /* Rem sizes follow the visitor's browser text-size preference. */
+    font-size: 100%;
     scroll-padding-top: 9rem;
   }
   body {

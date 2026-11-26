@@ -20,11 +20,11 @@ export default function BarrierefreiheitserklaerungPage() {
         <Prose>
           <h2>Was wir umgesetzt haben</h2>
           <ul>
-            <li>Grundschrift in 18 Pixel, die mit der Schriftgröße Ihres Browsers wächst.</li>
+            <li>Grundschrift in 16 Pixel, die mit der Schriftgröße Ihres Browsers wächst.</li>
             <li>Farben mit gutem Kontrast, im hellen und im dunklen Modus.</li>
             <li>Ein Knopf „Vorlesen“ auf jeder Seite.</li>
             <li>Bedienbar mit der Tastatur, mit sichtbarer Markierung und einem Link „Zum Inhalt springen“.</li>
-            <li>Keine Animationen, wenn Ihr Gerät auf „Bewegung reduzieren“ eingestellt ist.</li>
+            <li>Wichtige Inhalte bleiben auch ohne Animation sofort sichtbar.</li>
             <li>Klare Überschriften und Beschriftungen, damit Screenreader die Seite gut erfassen.</li>
           </ul>
 

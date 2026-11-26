@@ -68,7 +68,7 @@ export function Header() {
             href="/kontakt"
             className={cn(buttonVariants(), "hidden h-11 px-5 text-base md:inline-flex")}
           >
-            Gespräch vereinbaren
+            Erstgespräch anfragen
           </Link>
           <MobileNav />
         </div>

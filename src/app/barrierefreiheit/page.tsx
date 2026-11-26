@@ -26,7 +26,7 @@ export default function BarrierefreiheitPage() {
           <h2>Was eine barrierearme Praxiswebsite ausmacht</h2>
           <ul>
             <li>
-              <strong>Gut lesbar:</strong> große Schrift, klare Kontraste, genug Abstand. Die Schrift wächst mit, wenn
+              <strong>Gut lesbar:</strong> gut lesbare Schrift, klare Kontraste, genug Abstand. Die Schrift wächst mit, wenn
               jemand sie im Browser vergrößert.
             </li>
             <li>
@@ -41,10 +41,32 @@ export default function BarrierefreiheitPage() {
               man gerade ist.
             </li>
             <li>
-              <strong>Ruhig:</strong> keine blinkenden Elemente. Wer auf seinem Gerät „Bewegung reduzieren“
-              eingestellt hat, sieht keine Animationen.
+              <strong>Ruhig:</strong> keine blinkenden Elemente oder automatisch startenden Animationen.
             </li>
           </ul>
+          <h2>Schriftgrößen im Beispiel</h2>
+          <p>
+            Die Grundschrift dieser Website ist 16 Pixel. Hier sehen Sie, wie verschiedene Größen im Text wirken. Die
+            Browser-Zoomfunktion vergrößert alle Größen.
+          </p>
+          <div className="my-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            <div>
+              <div className="text-sm font-medium text-muted-foreground">14 px · Hinweis</div>
+              <div className="mt-1 text-sm leading-relaxed">Sprechzeiten und kurze Zusatzinfos.</div>
+            </div>
+            <div>
+              <div className="text-sm font-medium text-muted-foreground">16 px · Fließtext</div>
+              <div className="mt-1 text-base leading-relaxed">Wir gestalten Ihre Website passend zu Ihrer Praxis.</div>
+            </div>
+            <div>
+              <div className="text-sm font-medium text-muted-foreground">18 px · Hervorhebung</div>
+              <div className="mt-1 text-lg leading-relaxed">Gut lesbar auf jedem Gerät.</div>
+            </div>
+            <div>
+              <div className="text-sm font-medium text-muted-foreground">24 px · Zwischenüberschrift</div>
+              <div className="mt-1 font-heading text-2xl font-semibold">Ihre Praxis im Mittelpunkt</div>
+            </div>
+          </div>
           <p>Diese Website ist selbst so gebaut. Probieren Sie den Knopf „Vorlesen“ oben auf der Seite aus.</p>
 
           <h2>Barrierearm, nicht „100 % barrierefrei“</h2>

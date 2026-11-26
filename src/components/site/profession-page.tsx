@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { CheckIcon } from "lucide-react"
 
 import { CtaSection, PageHeader, PrimaryLink, Section, SectionTitle } from "@/components/site/blocks"
-import { FadeIn } from "@/components/site/fade-in"
 import { FaqList } from "@/components/site/faq-list"
 import { Services, Steps } from "@/components/site/services"
 import { faqsById } from "@/content/faq"
@@ -28,20 +27,20 @@ export function ProfessionPage({ slug }: { slug: Profession["slug"] }) {
     <>
       <PageHeader eyebrow={`Für ${p.practice}`} title={`Eine Website für Ihre ${p.name}-Praxis.`} lead={p.lead}>
         <div className="mt-8">
-          <PrimaryLink href="/kontakt">Gespräch vereinbaren</PrimaryLink>
+          <PrimaryLink href="/kontakt">Erstgespräch anfragen</PrimaryLink>
         </div>
       </PageHeader>
 
       <Section aria-labelledby="needs">
         <SectionTitle id="needs">{p.needsTitle}</SectionTitle>
         <ul className="mt-10 grid gap-5 md:grid-cols-3">
-          {p.needs.map((need, index) => (
+          {p.needs.map((need) => (
             <li key={need.title}>
-              <FadeIn delay={index * 0.06} className="h-full rounded-xl border bg-card p-6">
+              <div className="h-full rounded-xl border bg-card p-6">
                 <CheckIcon className="size-6 text-primary" aria-hidden />
                 <p className="mt-3 text-xl font-semibold">{need.title}</p>
                 <p className="mt-2 text-muted-foreground">{need.text}</p>
-              </FadeIn>
+              </div>
             </li>
           ))}
         </ul>

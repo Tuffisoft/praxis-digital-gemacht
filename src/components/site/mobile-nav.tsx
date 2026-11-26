@@ -40,7 +40,7 @@ export function MobileNav() {
           ))}
           <Separator className="my-3" />
           <Link href="/kontakt" onClick={close} className={cn(buttonVariants(), "h-12 text-base")}>
-            Gespräch vereinbaren
+            Erstgespräch anfragen
           </Link>
         </nav>
       </SheetContent>

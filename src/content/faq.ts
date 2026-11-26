@@ -1,4 +1,9 @@
-export type Faq = { id: string; question: string; answer: string[]; topic: "allgemein" | "website" | "e-rechnung" | "barrierefreiheit" }
+export type Faq = {
+  id: string;
+  question: string;
+  answer: string[];
+  topic: "allgemein" | "website" | "e-rechnung" | "barrierefreiheit";
+};
 
 /**
  * Answers stay within what we know and offer. Anything about prices, contracts
@@ -26,7 +31,7 @@ export const faqs: Faq[] = [
     topic: "allgemein",
     question: "Wer steckt hinter Praxis digital gemacht?",
     answer: [
-      "Praxis digital gemacht ist ein Angebot von Studio Fi aus Detmold. Vertrag und Rechnung kommen deshalb von Studio Fi.",
+      "Praxis digital gemacht ist ein Angebot von Studio Fi . Vertrag und Rechnung kommen deshalb von Studio Fi.",
     ],
   },
   {
@@ -103,10 +108,12 @@ export const faqs: Faq[] = [
       "So sparsam wie möglich. Auf dieser Website liegen die Schriften auf unserem eigenen Server, und es gibt kein Tracking. Deshalb brauchen wir auch keinen Cookie-Hinweis. Welche Dienste wir für Ihre Website einsetzen, besprechen wir mit Ihnen.",
     ],
   },
-]
+];
 
-export const faqsByTopic = (topic: Faq["topic"]) => faqs.filter((f) => f.topic === topic)
-export const faqsById = (ids: string[]) => ids.map((id) => faqs.find((f) => f.id === id)).filter((f): f is Faq => !!f)
+export const faqsByTopic = (topic: Faq["topic"]) =>
+  faqs.filter((f) => f.topic === topic);
+export const faqsById = (ids: string[]) =>
+  ids.map((id) => faqs.find((f) => f.id === id)).filter((f): f is Faq => !!f);
 
 export function faqJsonLd(items: Faq[]) {
   return {
@@ -117,5 +124,5 @@ export function faqJsonLd(items: Faq[]) {
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer.join(" ") },
     })),
-  }
+  };
 }

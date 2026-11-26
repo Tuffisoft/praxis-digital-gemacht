@@ -4,7 +4,7 @@ import { PageHeader, Section } from "@/components/site/blocks"
 import { ContactForm } from "./contact-form"
 
 export const metadata: Metadata = {
-  title: "Gespräch vereinbaren",
+  title: "Erstgespräch anfragen",
   description:
     "Sprechen wir über Ihre Praxis: Website, Terminanfrage, E-Rechnung. Schreiben Sie uns, wir melden uns bei Ihnen.",
   alternates: { canonical: "/kontakt" },

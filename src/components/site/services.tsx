@@ -1,7 +1,6 @@
 import { CalendarCheckIcon, PencilLineIcon, ReceiptTextIcon, Volume2Icon } from "lucide-react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FadeIn } from "@/components/site/fade-in"
 
 const services = [
   {
@@ -29,20 +28,18 @@ const services = [
 export function Services() {
   return (
     <div className="grid gap-5 sm:grid-cols-2">
-      {services.map((service, index) => (
-        <FadeIn key={service.title} delay={index * 0.06}>
-          <Card className="h-full">
-            <CardHeader>
-              <span className="mb-2 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <service.icon className="size-6" aria-hidden />
-              </span>
-              <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-base leading-relaxed text-muted-foreground">{service.text}</p>
-            </CardContent>
-          </Card>
-        </FadeIn>
+      {services.map((service) => (
+        <Card key={service.title} className="h-full">
+          <CardHeader>
+            <span className="mb-2 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <service.icon className="size-6" aria-hidden />
+            </span>
+            <CardTitle className="text-xl font-semibold">{service.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-base leading-relaxed text-muted-foreground">{service.text}</p>
+          </CardContent>
+        </Card>
       ))}
     </div>
   )
@@ -59,7 +56,7 @@ export function Steps() {
     <ol className="grid gap-5 md:grid-cols-3">
       {steps.map((step, index) => (
         <li key={step.title}>
-          <FadeIn delay={index * 0.08} className="h-full rounded-xl border bg-card p-6">
+          <div className="h-full rounded-xl border bg-card p-6">
             <span
               className="flex size-10 items-center justify-center rounded-full bg-primary font-semibold text-primary-foreground"
               aria-hidden
@@ -68,7 +65,7 @@ export function Steps() {
             </span>
             <p className="mt-4 text-xl font-semibold">{step.title}</p>
             <p className="mt-2 text-muted-foreground">{step.text}</p>
-          </FadeIn>
+          </div>
         </li>
       ))}
     </ol>

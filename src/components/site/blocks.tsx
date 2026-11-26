@@ -1,7 +1,6 @@
 import Link from "next/link"
 
 import { buttonVariants } from "@/components/ui/button"
-import { FadeIn } from "@/components/site/fade-in"
 import { cn } from "@/lib/utils"
 
 export function Container({ className, ...props }: React.ComponentProps<"div">) {
@@ -46,12 +45,12 @@ export function PageHeader({
   return (
     <div className="border-b bg-muted/40">
       <Container className="py-14 sm:py-20">
-        <FadeIn className="max-w-3xl">
+        <div className="max-w-3xl">
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
           <h1 className="font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">{title}</h1>
           {lead && <p className="mt-5 text-lg text-muted-foreground sm:text-xl">{lead}</p>}
           {children}
-        </FadeIn>
+        </div>
       </Container>
     </div>
   )
@@ -82,21 +81,19 @@ export function CtaSection({
 }) {
   return (
     <Section>
-      <FadeIn>
-        <div className="rounded-2xl bg-primary px-6 py-12 text-primary-foreground sm:px-12 sm:py-16">
-          <h2 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
-          <p className="mt-4 max-w-2xl text-lg opacity-95">{text}</p>
-          <Link
-            href="/kontakt"
-            className={cn(
-              buttonVariants({ variant: "secondary" }),
-              "mt-8 h-12 px-6 text-base"
-            )}
-          >
-            Gespräch vereinbaren
-          </Link>
-        </div>
-      </FadeIn>
+      <div className="rounded-2xl bg-primary px-6 py-12 text-primary-foreground sm:px-12 sm:py-16">
+        <h2 className="font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
+        <p className="mt-4 max-w-2xl text-lg opacity-95">{text}</p>
+        <Link
+          href="/kontakt"
+          className={cn(
+            buttonVariants({ variant: "secondary" }),
+            "mt-8 h-12 px-6 text-base"
+          )}
+        >
+          Erstgespräch anfragen
+        </Link>
+      </div>
     </Section>
   )
 }
