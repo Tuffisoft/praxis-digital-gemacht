@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     agentFeedback: true,
   },
   cacheComponents: true,
+  images: {
+    // Sanity images are optimised and served via our own domain (/_next/image).
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
+  },
   partialPrefetching: true,
   turbopack: {
     rules: {

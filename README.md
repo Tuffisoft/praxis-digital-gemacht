@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Praxis digital gemacht
 
-## Getting Started
+Marketing website for **Praxis digital gemacht**, a Studio Fi offer (Detmold): accessible websites for Heilmittelpraxen (Ergotherapie, Logopädie, Physiotherapie, Podologie).
 
-First, run the development server:
+Stack: Next.js 16 (App Router, Cache Components), shadcn/ui (Base UI), Tailwind CSS 4, Motion, next-themes, Resend, Sanity (blog and guides).
+
+## Develop
 
 ```bash
+cp .env.example .env.local   # fill in the values
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploying
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Vercel never deploys automatically (`vercel.json` → `git.deploymentEnabled: false`). Every deploy is triggered manually in Vercel. Content from Sanity is read at build time, so new posts and guides appear after the next deploy.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Environment variables for Vercel are listed in `.env.example`.
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+| Path | What |
+| --- | --- |
+| `src/app` | Pages: home, four profession pages, `/e-rechnung`, `/barrierefreiheit`, `/faq`, `/ratgeber`, `/blog`, `/kontakt`, legal pages |
+| `src/app/kontakt/actions.ts` | Contact form Server Action (Resend, honeypot + time check, no captcha) |
+| `src/content` | FAQ and profession copy |
+| `src/components/site` | Layout and page building blocks, incl. the read-aloud button |
+| `src/lib/sanity.ts` | Sanity queries (cached until the next deploy) |
+| `studio/` | Sanity Studio, a separate small project – see `studio/README.md` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before going live
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Replace every `<Todo>` (search the code): Impressum, privacy policy, accessibility statement.
+- Have the privacy policy reviewed legally.
+- Set the Resend variables and verify the sending domain in Resend.
+- Optional: install Motion+ following [Motion's guide](https://motion.dev/docs/react-motion-plus-installation). The site currently uses the free `motion` package.
 
-## Deploy on Vercel
+## Accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+18px base font (scales with browser settings), WCAG AA colours, skip link, visible focus, keyboard navigation, `prefers-reduced-motion` respected, read-aloud button using the browser's own speech synthesis. Fonts are self-hosted via `next/font`; no tracking, no cookies.
