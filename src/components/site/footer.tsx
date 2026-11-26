@@ -1,0 +1,58 @@
+import Link from "next/link"
+
+import { Logo } from "@/components/site/logo"
+import { legalNav, mainNav, professionNav, site } from "@/lib/site"
+
+export function Footer() {
+  return (
+    <footer className="mt-24 border-t bg-muted/40">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+        <div className="md:col-span-2">
+          <Logo />
+          <p className="mt-4 max-w-sm text-muted-foreground">
+            Websites für Heilmittelpraxen. Gut lesbar, verständlich, aus einer Hand.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            {site.name} ist ein Angebot von {site.parent}, {site.city}.
+          </p>
+        </div>
+        <nav aria-label="Für Ihre Praxis">
+          <p className="font-medium">Für Ihre Praxis</p>
+          <ul className="mt-3 space-y-2">
+            {professionNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Weitere Seiten">
+          <p className="font-medium">Wissen und Kontakt</p>
+          <ul className="mt-3 space-y-2">
+            {[...mainNav, { href: "/kontakt", label: "Kontakt" }].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div className="border-t">
+        <nav
+          aria-label="Rechtliches"
+          className="mx-auto flex max-w-6xl flex-wrap gap-x-6 gap-y-2 px-4 py-6 text-sm sm:px-6"
+        >
+          {legalNav.map((item) => (
+            <Link key={item.href} href={item.href} className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </footer>
+  )
+}
