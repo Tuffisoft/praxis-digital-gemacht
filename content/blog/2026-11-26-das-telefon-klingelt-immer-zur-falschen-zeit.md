@@ -1,5 +1,5 @@
 ---
-title: Das Telefon klingelt immer zur falschen Zeit
+title: Online-Terminbuchung
 date: 2026-11-26
 author: Fi
 description: >-
