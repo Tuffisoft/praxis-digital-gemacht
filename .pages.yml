@@ -1,0 +1,99 @@
+# Pages CMS configuration (https://pagescms.org)
+# Editors sign in at https://app.pagescms.org with GitHub and edit these files in the browser.
+# Every save is a Git commit. Nothing goes live until the next manual deploy on Vercel.
+
+media:
+  - name: bilder
+    label: Bilder
+    input: public/uploads/bilder
+    output: /uploads/bilder
+    categories: [image]
+    rename: safe
+  - name: ratgeber
+    label: Ratgeber-PDFs
+    input: public/uploads/ratgeber
+    output: /uploads/ratgeber
+    extensions: [pdf]
+    rename: safe
+
+content:
+  - name: blog
+    label: Blog
+    type: collection
+    path: content/blog
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      fields: [title, date]
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+      - name: date
+        label: Datum
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: author
+        label: Autorin / Autor
+        type: string
+      - name: description
+        label: Kurzbeschreibung
+        type: text
+        description: Ein bis zwei Sätze. Erscheint in der Übersicht und bei Google.
+      - name: image
+        label: Titelbild
+        type: image
+        options:
+          media: bilder
+      - name: image_alt
+        label: Bildbeschreibung
+        type: string
+        description: Was ist auf dem Bild zu sehen? Wichtig für Menschen, die nicht gut sehen.
+      - name: draft
+        label: Entwurf (nicht veröffentlichen)
+        type: boolean
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          media: bilder
+
+  - name: ratgeber
+    label: Praxis-Ratgeber
+    type: collection
+    path: content/ratgeber
+    filename: "{primary}.md"
+    view:
+      primary: title
+      fields: [title]
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+      - name: description
+        label: Kurzbeschreibung
+        type: text
+      - name: pdf
+        label: PDF-Datei
+        type: file
+        required: true
+        options:
+          media: ratgeber
+          extensions: [pdf]
+      - name: cover
+        label: Titelbild
+        type: image
+        options:
+          media: bilder
+      - name: draft
+        label: Entwurf (nicht veröffentlichen)
+        type: boolean
+      - name: body
+        label: Einleitung auf der Seite
+        type: rich-text
+        options:
+          media: bilder

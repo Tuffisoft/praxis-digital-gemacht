@@ -56,8 +56,8 @@ export default function DatenschutzPage() {
 
           <h2>Blog und Ratgeber</h2>
           <p>
-            Die Inhalte von Blog und Ratgeber verwalten wir mit Sanity. Die Downloads der Ratgeber liefern wir über
-            unsere eigene Domain aus. <Todo>Anbieterangaben Sanity und Auftragsverarbeitungsvertrag</Todo>
+            Beiträge, Bilder und Ratgeber liegen als Dateien auf unserem eigenen Server und werden über unsere eigene
+            Domain ausgeliefert. Beim Lesen oder Herunterladen werden keine Daten an andere Anbieter übertragen.
           </p>
 
           <h2>Ihre Rechte</h2>

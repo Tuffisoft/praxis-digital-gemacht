@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 
-import { getGuides, getPosts } from "@/lib/sanity"
+import { getGuides, getPosts } from "@/lib/content"
 import { site } from "@/lib/site"
 
 const staticRoutes = [
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, guides] = await Promise.all([getPosts(), getGuides()])
   return [
     ...staticRoutes.map((path) => ({ url: `${site.url}${path}` })),
-    ...posts.map((p) => ({ url: `${site.url}/blog/${p.slug}`, lastModified: p.publishedAt })),
+    ...posts.map((p) => ({ url: `${site.url}/blog/${p.slug}`, lastModified: p.date })),
     ...guides.map((g) => ({ url: `${site.url}/ratgeber/${g.slug}` })),
   ]
 }

@@ -2,7 +2,7 @@
 
 Marketing website for **Praxis digital gemacht**, a Studio Fi offer (Detmold): accessible websites for Heilmittelpraxen (Ergotherapie, Logopädie, Physiotherapie, Podologie).
 
-Stack: Next.js 16 (App Router, Cache Components), shadcn/ui (Base UI), Tailwind CSS 4, Motion, next-themes, Resend, Sanity (blog and guides).
+Stack: Next.js 16 (App Router, Cache Components), shadcn/ui (Base UI), Tailwind CSS 4, Motion, next-themes, Resend. Blog posts and guides are Markdown files edited with Pages CMS.
 
 ## Develop
 
@@ -14,7 +14,7 @@ npm run dev
 
 ## Deploying
 
-Vercel never deploys automatically (`vercel.json` → `git.deploymentEnabled: false`). Every deploy is triggered manually in Vercel. Content from Sanity is read at build time, so new posts and guides appear after the next deploy.
+Vercel never deploys automatically (`vercel.json` → `git.deploymentEnabled: false`). Every deploy is triggered manually in Vercel. Blog posts and guides are read at build time, so new content appears after the next deploy.
 
 Environment variables for Vercel are listed in `.env.example`.
 
@@ -26,8 +26,19 @@ Environment variables for Vercel are listed in `.env.example`.
 | `src/app/kontakt/actions.ts` | Contact form Server Action (Resend, honeypot + time check, no captcha) |
 | `src/content` | FAQ and profession copy |
 | `src/components/site` | Layout and page building blocks, incl. the read-aloud button |
-| `src/lib/sanity.ts` | Sanity queries (cached until the next deploy) |
-| `studio/` | Sanity Studio, a separate small project – see `studio/README.md` |
+| `content/blog`, `content/ratgeber` | Blog posts and Praxis-Ratgeber as Markdown files |
+| `public/uploads` | Uploaded images and PDFs |
+| `src/lib/content.ts` | Reads the Markdown files at build time |
+| `.pages.yml` | Pages CMS configuration |
+
+## Editing blog posts and guides (Pages CMS)
+
+1. Go to [app.pagescms.org](https://app.pagescms.org) and sign in with GitHub.
+2. Choose this repository and the `master` branch.
+3. Edit or create entries under **Blog** or **Praxis-Ratgeber**; upload images and PDFs by drag and drop.
+4. Saving creates a commit. Deploy manually on Vercel to publish.
+
+Editors need a GitHub account with access to this repository. Entries with **Entwurf** ticked (`draft: true`) are not published. You can also edit the files directly in `content/`.
 
 ## Before going live
 
