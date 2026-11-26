@@ -6,8 +6,8 @@ import { ArrowLeftIcon } from "lucide-react"
 
 import { Container, CtaSection } from "@/components/site/blocks"
 import { JsonLd } from "@/components/site/json-ld"
-import { PortableText } from "@/components/site/portable-text"
-import { PLACEHOLDER_SLUG, formatDate, getPost, getPosts, imageUrl } from "@/lib/sanity"
+import { Markdown } from "@/components/site/markdown"
+import { PLACEHOLDER_SLUG, formatDate, getPost, getPosts } from "@/lib/content"
 import { site } from "@/lib/site"
 
 export async function generateStaticParams() {
@@ -19,17 +19,16 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) return { title: "Beitrag nicht gefunden", robots: { index: false } }
-  const image = imageUrl(post.mainImage, 1200)
   return {
     title: post.title,
-    description: post.excerpt,
+    description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
       title: post.title,
-      description: post.excerpt,
-      publishedTime: post.publishedAt,
-      ...(image ? { images: [{ url: image, width: 1200 }] } : {}),
+      description: post.description,
+      publishedTime: post.date,
+      ...(post.image ? { images: [{ url: post.image }] } : {}),
     },
   }
 }
@@ -38,8 +37,6 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params
   const post = await getPost(slug)
   if (!post) notFound()
-
-  const image = imageUrl(post.mainImage, 1600)
 
   return (
     <>
@@ -50,14 +47,14 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           </Link>
           <h1 className="mt-6 font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">{post.title}</h1>
           <p className="mt-4 text-muted-foreground">
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
             {post.author ? ` · ${post.author}` : null}
           </p>
-          {post.excerpt && <p className="mt-6 text-xl text-muted-foreground">{post.excerpt}</p>}
-          {image && (
+          {post.description && <p className="mt-6 text-xl text-muted-foreground">{post.description}</p>}
+          {post.image && (
             <Image
-              src={image}
-              alt={post.mainImage?.alt ?? ""}
+              src={post.image}
+              alt={post.imageAlt ?? ""}
               width={1600}
               height={900}
               priority
@@ -65,7 +62,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             />
           )}
           <div className="mt-10">
-            <PortableText value={post.body} />
+            <Markdown>{post.body}</Markdown>
           </div>
         </Container>
       </article>
@@ -75,12 +72,12 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           headline: post.title,
-          description: post.excerpt,
-          datePublished: post.publishedAt,
+          description: post.description,
+          datePublished: post.date,
           author: post.author ? { "@type": "Person", name: post.author } : { "@type": "Organization", name: site.parent },
           publisher: { "@type": "Organization", name: site.name },
           mainEntityOfPage: `${site.url}/blog/${post.slug}`,
-          ...(image ? { image } : {}),
+          ...(post.image ? { image: `${site.url}${post.image}` } : {}),
         }}
       />
     </>

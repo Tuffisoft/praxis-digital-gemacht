@@ -108,7 +108,7 @@ export function Prose({ className, ...props }: React.ComponentProps<"div">) {
         "[&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold",
         "[&_p]:mb-5 [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_ol]:mb-5 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6",
         "[&_a]:font-medium [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4",
-        "[&_strong]:font-semibold",
+        "[&_strong]:font-semibold [&_blockquote]:mb-5 [&_blockquote]:border-l-4 [&_blockquote]:border-primary/40 [&_blockquote]:pl-4 [&_blockquote]:text-muted-foreground",
         className
       )}
       {...props}

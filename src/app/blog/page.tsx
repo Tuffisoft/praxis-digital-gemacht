@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty"
 import { CtaSection, PageHeader, Section } from "@/components/site/blocks"
-import { formatDate, getPosts } from "@/lib/sanity"
+import { formatDate, getPosts } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -40,10 +40,10 @@ export default async function BlogPage() {
                   <Card className="h-full transition-colors hover:border-primary">
                     <CardHeader>
                       <p className="text-sm text-muted-foreground">
-                        <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+                        <time dateTime={post.date}>{formatDate(post.date)}</time>
                       </p>
                       <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
-                      {post.excerpt && <CardDescription className="text-base">{post.excerpt}</CardDescription>}
+                      {post.description && <CardDescription className="text-base">{post.description}</CardDescription>}
                     </CardHeader>
                   </Card>
                 </Link>

@@ -6,7 +6,7 @@ import { FileTextIcon } from "lucide-react"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty"
 import { CtaSection, PageHeader, Section } from "@/components/site/blocks"
-import { getGuides, imageUrl } from "@/lib/sanity"
+import { getGuides } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Praxis-Ratgeber",
@@ -38,7 +38,7 @@ export default async function RatgeberPage() {
         ) : (
           <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {guides.map((guide) => {
-              const cover = imageUrl(guide.cover, 800)
+              const cover = guide.cover
               return (
                 <li key={guide.slug}>
                   <Link href={`/ratgeber/${guide.slug}`} className="block h-full rounded-xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
