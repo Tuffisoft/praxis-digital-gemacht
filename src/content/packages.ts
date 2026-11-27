@@ -1,6 +1,9 @@
 /**
  * The three packages. Prices and availability live here so they can be changed in one place.
- * price: null shows "Preis im Gespräch" until the prices are final.
+ * price: null shows "Preis im Gespräch".
+ * setup: null shows "dazu einmalig die Einrichtung" without an amount.
+ * Studio Fi is a Kleinunternehmer (§ 19 UStG): prices are what the practice pays, no VAT on top.
+ * If that changes, update `priceNote` below.
  */
 export type PackageId = "schaufenster" | "praxis" | "komplett"
 
@@ -23,7 +26,7 @@ export const packages: Package[] = [
     name: "Schaufenster",
     forWhom: "Für Praxen, die vor allem eine gute Website brauchen.",
     summary: "Ihre Website, gut lesbar und rundum betreut. Mit Terminanfrage und einem kleinen Bereich, in dem Sie selbst Änderungen machen.",
-    price: null,
+    price: 50,
     setup: null,
     available: true,
   },
@@ -32,9 +35,9 @@ export const packages: Package[] = [
     name: "Praxis",
     forWhom: "Für Praxen mit vollem Telefon und langer Warteliste.",
     summary: "Alles aus dem Schaufenster, dazu Online-Termine für ganze Behandlungsserien, eine Warteliste und Erinnerungen.",
-    price: null,
+    price: 100,
     setup: null,
-    available: false,
+    available: true,
     highlight: true,
   },
   {
@@ -42,11 +45,17 @@ export const packages: Package[] = [
     name: "Komplett",
     forWhom: "Für Praxen, die alles an einem Ort haben möchten.",
     summary: "Alles aus dem Paket Praxis, dazu Ihr Praxisbüro mit E-Rechnungs-Eingang, eine Seite für Team und Stellen und eine Einführung für Ihr Team.",
-    price: null,
+    price: 150,
     setup: null,
-    available: false,
+    available: true,
   },
 ]
+
+/** Shown under the package cards */
+export const terms = {
+  commitment: "Mindestlaufzeit 12 Monate, danach monatlich kündbar.",
+  priceNote: "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Der Preis, den Sie hier sehen, ist der Preis, den Sie zahlen.",
+}
 
 export type Feature = { label: string; included: Record<PackageId, boolean> }
 

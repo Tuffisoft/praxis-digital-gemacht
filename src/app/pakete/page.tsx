@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { CtaSection, PageHeader, PrimaryLink, Section, SectionTitle } from "@/components/site/blocks"
 import { FaqList } from "@/components/site/faq-list"
-import { featureGroups, formatEuro, packages, type Package } from "@/content/packages"
+import { featureGroups, formatEuro, packages, terms, type Package } from "@/content/packages"
 import type { Faq } from "@/content/faq"
 
 export const metadata: Metadata = {
@@ -70,9 +70,17 @@ const faqs: Faq[] = [
   {
     id: "mwst",
     topic: "allgemein",
-    question: "Kann ich die Mehrwertsteuer zurückholen?",
+    question: "Kommt noch Mehrwertsteuer dazu?",
     answer: [
-      "Heilmittelpraxen können die Mehrwertsteuer in der Regel nicht als Vorsteuer abziehen, weil ihre Behandlungen umsatzsteuerfrei sind. Deshalb nennen wir Ihnen immer auch den Preis inklusive Mehrwertsteuer. Was genau für Ihre Praxis gilt, klären Sie bitte mit Ihrer Steuerberatung.",
+      "Nein. Studio Fi ist Kleinunternehmer, deshalb berechnen wir nach § 19 UStG keine Umsatzsteuer. Der Preis auf dieser Seite ist der Preis, den Sie zahlen.",
+    ],
+  },
+  {
+    id: "laufzeit",
+    topic: "allgemein",
+    question: "Wie lange binde ich mich?",
+    answer: [
+      "Die Mindestlaufzeit beträgt 12 Monate. Danach können Sie monatlich kündigen.",
     ],
   },
 ]
@@ -87,9 +95,9 @@ function Price({ pkg }: { pkg: Package }) {
         <span className="font-heading text-4xl font-semibold">{formatEuro(pkg.price)}</span>
         <span className="text-muted-foreground"> im Monat</span>
       </p>
-      {pkg.setup !== null && (
-        <p className="mt-1 text-sm text-muted-foreground">einmalig {formatEuro(pkg.setup)} für die Einrichtung</p>
-      )}
+      <p className="mt-1 text-sm text-muted-foreground">
+        {pkg.setup !== null ? `dazu einmalig ${formatEuro(pkg.setup)} für die Einrichtung` : "dazu einmalig die Einrichtung"}
+      </p>
     </div>
   )
 }
@@ -165,7 +173,7 @@ export default function PaketePage() {
           ))}
         </ul>
         <p className="mt-4 text-sm text-muted-foreground">
-          Alle Preise nennen wir Ihnen auch inklusive Mehrwertsteuer. Ein Vertrag läuft über Studio Fi.
+          {terms.commitment} {terms.priceNote} Ihr Vertrag läuft über Studio Fi.
         </p>
 
         <h3 className="mt-16 mb-6 font-heading text-2xl font-semibold">Was in welchem Paket steckt</h3>
