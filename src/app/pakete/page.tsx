@@ -72,7 +72,7 @@ const faqs: Faq[] = [
     topic: "allgemein",
     question: "Kommt noch Mehrwertsteuer dazu?",
     answer: [
-      "Nein. Studio Fi ist Kleinunternehmer, deshalb berechnen wir nach § 19 UStG keine Umsatzsteuer. Der Preis auf dieser Seite ist der Preis, den Sie zahlen.",
+      "Nein. Studio Fi ist Kleinunternehmer, deshalb berechnen wir nach § 19 UStG keine Umsatzsteuer.",
     ],
   },
   {

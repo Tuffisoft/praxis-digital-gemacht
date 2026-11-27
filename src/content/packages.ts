@@ -27,7 +27,7 @@ export const packages: Package[] = [
     forWhom: "Für Praxen, die vor allem eine gute Website brauchen.",
     summary: "Ihre Website, gut lesbar und rundum betreut. Mit Terminanfrage und einem kleinen Bereich, in dem Sie selbst Änderungen machen.",
     price: 50,
-    setup: null,
+    setup: 1290,
     available: true,
   },
   {
@@ -36,7 +36,7 @@ export const packages: Package[] = [
     forWhom: "Für Praxen mit vollem Telefon und langer Warteliste.",
     summary: "Alles aus dem Schaufenster, dazu Online-Termine für ganze Behandlungsserien, eine Warteliste und Erinnerungen.",
     price: 100,
-    setup: null,
+    setup: 1290,
     available: true,
     highlight: true,
   },
@@ -46,7 +46,7 @@ export const packages: Package[] = [
     forWhom: "Für Praxen, die alles an einem Ort haben möchten.",
     summary: "Alles aus dem Paket Praxis, dazu Ihr Praxisbüro mit E-Rechnungs-Eingang, eine Seite für Team und Stellen und eine Einführung für Ihr Team.",
     price: 150,
-    setup: null,
+    setup: 1290,
     available: true,
   },
 ]
@@ -54,7 +54,7 @@ export const packages: Package[] = [
 /** Shown under the package cards */
 export const terms = {
   commitment: "Mindestlaufzeit 12 Monate, danach monatlich kündbar.",
-  priceNote: "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet. Der Preis, den Sie hier sehen, ist der Preis, den Sie zahlen.",
+  priceNote: "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
 }
 
 export type Feature = { label: string; included: Record<PackageId, boolean> }
