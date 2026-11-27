@@ -12,21 +12,12 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Logo } from "@/components/site/logo"
 import { MobileNav } from "@/components/site/mobile-nav"
-import { ReadAloud } from "@/components/site/read-aloud"
-import { ThemeToggle } from "@/components/site/theme-toggle"
 import { mainNav, professionNav } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
-      {/* Accessibility bar: always visible, on every page and screen size. */}
-      <div className="border-b bg-muted/60">
-        <div className="mx-auto flex max-w-7xl items-center justify-end gap-2 px-4 py-1 sm:px-6">
-          <ReadAloud className="h-9 text-sm" />
-          <ThemeToggle />
-        </div>
-      </div>
       <div className="mx-auto flex h-18 max-w-7xl items-center gap-4 px-4 sm:px-6">
         <Logo />
 

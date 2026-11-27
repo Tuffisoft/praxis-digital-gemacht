@@ -83,7 +83,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <p className="mt-6 rounded-lg bg-muted p-4 text-base">
-                  Probieren Sie es aus: Oben auf jeder Seite finden Sie den
+                  Probieren Sie es aus: Unten auf jeder Seite finden Sie den
                   Knopf <strong>„Vorlesen“</strong>.
                 </p>
               </CardContent>

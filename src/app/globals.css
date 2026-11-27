@@ -198,7 +198,7 @@
   html {
     /* Rem sizes follow the visitor's browser text-size preference. */
     font-size: 100%;
-    scroll-padding-top: 9rem;
+    scroll-padding-top: 6rem;
   }
   body {
     line-height: 1.6;
