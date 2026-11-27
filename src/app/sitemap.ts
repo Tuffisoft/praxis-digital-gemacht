@@ -13,6 +13,7 @@ const staticRoutes = [
   "/barrierefreiheit",
   "/ratgeber",
   "/blog",
+  "/pakete",
   "/faq",
   "/kontakt",
   "/barrierefreiheitserklaerung",

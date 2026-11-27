@@ -36,6 +36,7 @@ export const professionNav: NavItem[] = [
 ];
 
 export const mainNav: NavItem[] = [
+  { href: "/pakete", label: "Pakete" },
   { href: "/e-rechnung", label: "E-Rechnung" },
   { href: "/barrierefreiheit", label: "Barrierefreiheit" },
   { href: "/ratgeber", label: "Ratgeber" },
