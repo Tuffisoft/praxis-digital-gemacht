@@ -1,3 +1,7 @@
+import { formatEuro, packages, terms } from "@/content/packages";
+
+const cheapest = packages.reduce((a, b) => ((a.price ?? Infinity) <= (b.price ?? Infinity) ? a : b));
+
 export type Faq = {
   id: string;
   question: string;
@@ -6,8 +10,8 @@ export type Faq = {
 };
 
 /**
- * Answers stay within what we know and offer. Anything about prices, contracts
- * or legal duties that is not settled yet is deliberately left out.
+ * Answers stay within what we know and offer. Anything about legal duties
+ * that is not settled yet is deliberately left out. Prices come from packages.ts.
  */
 export const faqs: Faq[] = [
   {
@@ -35,6 +39,15 @@ export const faqs: Faq[] = [
     ],
   },
   {
+    id: "kosten",
+    topic: "allgemein",
+    question: "Was kostet das?",
+    answer: [
+      `Unsere Pakete beginnen bei ${cheapest.price !== null ? formatEuro(cheapest.price) : ""} im Monat${cheapest.setup !== null ? `, dazu einmalig ${formatEuro(cheapest.setup)} für die Einrichtung` : ""}. Alle Pakete und was darin steckt finden Sie auf der Seite Pakete.`,
+      `${terms.commitment} ${terms.priceNote}`,
+    ],
+  },
+  {
     id: "ablauf",
     topic: "allgemein",
     question: "Wie läuft die Zusammenarbeit ab?",
@@ -56,7 +69,8 @@ export const faqs: Faq[] = [
     topic: "website",
     question: "Ist die Terminanfrage eine Online-Buchung?",
     answer: [
-      "Nein, bewusst nicht. Patientinnen und Patienten schicken eine Anfrage, zum Beispiel mit ihrer Verordnung und den Zeiten, die ihnen passen. Sie sehen alles auf einen Blick und entscheiden selbst, welcher Termin passt.",
+      "Im Paket Schaufenster nicht. Patientinnen und Patienten schicken eine Anfrage, zum Beispiel mit ihrer Verordnung und den Zeiten, die ihnen passen. Sie sehen alles auf einen Blick und entscheiden selbst, welcher Termin passt.",
+      "Ab dem Paket Praxis kommen Online-Termine für ganze Behandlungsserien dazu, außerdem eine Warteliste und Terminerinnerungen.",
     ],
   },
   {

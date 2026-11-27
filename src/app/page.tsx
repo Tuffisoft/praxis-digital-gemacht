@@ -140,6 +140,9 @@ export default function HomePage() {
         <div className="mt-10">
           <Services />
         </div>
+        <div className="mt-10">
+          <SecondaryLink href="/pakete">Pakete und Preise ansehen</SecondaryLink>
+        </div>
       </Section>
 
       <Section aria-labelledby="ablauf">
