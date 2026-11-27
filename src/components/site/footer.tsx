@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="mt-24 border-t bg-muted/40">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Logo />
+          <Logo withName />
           <p className="mt-4 max-w-sm text-muted-foreground">
             Websites für Heilmittelpraxen. Gut lesbar, verständlich, aus einer Hand.
           </p>
