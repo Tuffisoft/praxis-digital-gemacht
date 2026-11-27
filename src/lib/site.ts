@@ -1,13 +1,13 @@
 export const site = {
   name: "Praxis digital gemacht",
   parent: "Studio Fi",
-  city: "Detmold",
+  city: "Lage",
   url: (
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://praxis-digital-gemacht.de"
   ).replace(/\/$/, ""),
   tagline: "Ihre Praxis, digital gemacht.",
   description:
-    "Websites für Heilmittelpraxen: gut lesbar, mit Vorlesefunktion und Terminanfrage. Dazu richten wir ein, was in Ihrer Praxis sonst digital anfällt. Ein Angebot von Studio Fi .",
+    "Websites für Heilmittelpraxen: gut lesbar, mit Vorlesefunktion und Terminanfrage. Dazu richten wir ein, was in Ihrer Praxis sonst digital anfällt. Ein Angebot von Studio Fi aus Lage.",
 } as const;
 
 export type NavItem = { href: string; label: string; description?: string };

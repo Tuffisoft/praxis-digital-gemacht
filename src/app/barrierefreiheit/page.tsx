@@ -67,7 +67,7 @@ export default function BarrierefreiheitPage() {
               <div className="mt-1 font-heading text-2xl font-semibold">Ihre Praxis im Mittelpunkt</div>
             </div>
           </div>
-          <p>Diese Website ist selbst so gebaut. Probieren Sie den Knopf „Vorlesen“ oben auf der Seite aus.</p>
+          <p>Diese Website ist selbst so gebaut. Probieren Sie den Knopf „Vorlesen“ unten auf der Seite aus.</p>
 
           <h2>Barrierearm, nicht „100 % barrierefrei“</h2>
           <p>

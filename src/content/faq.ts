@@ -31,7 +31,7 @@ export const faqs: Faq[] = [
     topic: "allgemein",
     question: "Wer steckt hinter Praxis digital gemacht?",
     answer: [
-      "Praxis digital gemacht ist ein Angebot von Studio Fi . Vertrag und Rechnung kommen deshalb von Studio Fi.",
+      "Praxis digital gemacht ist ein Angebot von Studio Fi aus Lage. Vertrag und Rechnung kommen deshalb von Studio Fi.",
     ],
   },
   {

@@ -54,6 +54,14 @@ export default function DatenschutzPage() {
             <Todo>Anbieterangaben Resend, Auftragsverarbeitungsvertrag, Serverstandort, Speicherdauer</Todo>
           </p>
 
+          <h2>Umfrage</h2>
+          <p>
+            Ihre Antworten auf unsere Umfrage schicken wir per E-Mail an uns, ebenfalls über Resend. Wir verwenden sie,
+            um den Alltag von Heilmittelpraxen besser zu verstehen. Name und Praxis fragen wir nicht ab. Eine
+            E-Mail-Adresse ist freiwillig; wir nutzen sie nur, um Ihnen die Ergebnisse zu schicken, wenn Sie dem
+            zustimmen (Art. 6 Abs. 1 lit. a DSGVO). <Todo>Speicherdauer der Antworten</Todo>
+          </p>
+
           <h2>Blog und Ratgeber</h2>
           <p>
             Beiträge, Bilder und Ratgeber liegen als Dateien auf unserem eigenen Server und werden über unsere eigene

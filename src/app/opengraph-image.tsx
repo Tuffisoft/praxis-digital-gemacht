@@ -24,7 +24,7 @@ export default function OpengraphImage() {
           <div style={{ display: "flex", fontSize: 92, fontWeight: 700, lineHeight: 1.05 }}>Ihre Praxis,</div>
           <div style={{ display: "flex", fontSize: 92, fontWeight: 700, lineHeight: 1.05, color: "#2f6762" }}>digital gemacht.</div>
         </div>
-        <div style={{ display: "flex", fontSize: 30, color: "#6b625a" }}>Ein Angebot von Studio Fi aus Detmold</div>
+        <div style={{ display: "flex", fontSize: 30, color: "#6b625a" }}>Ein Angebot von Studio Fi aus Lage</div>
       </div>
     ),
     size
