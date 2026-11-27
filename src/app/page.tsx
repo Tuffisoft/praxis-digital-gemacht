@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -15,6 +15,8 @@ import {
 import { FaqList } from "@/components/site/faq-list";
 import { Services, Steps } from "@/components/site/services";
 import { faqsById } from "@/content/faq";
+import { PersonaCard } from "@/components/site/persona";
+import { personas } from "@/content/personas";
 import { professionNav, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -111,21 +113,19 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {professionNav.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="group flex items-center justify-between rounded-xl border bg-card p-5 text-lg font-medium transition-colors hover:border-primary hover:bg-primary/5"
-              >
-                {item.label}
-                <ArrowRightIcon
-                  className="size-5 text-primary transition-transform group-hover:translate-x-1"
-                  aria-hidden
-                />
-              </Link>
-            </li>
-          ))}
+        <p className="mt-12 text-lg text-muted-foreground">
+          Lernen Sie Anna, Kalli, Hektor und Thea kennen. Vielleicht erkennen Sie sich wieder.
+        </p>
+        <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {professionNav.map((item) => {
+            const persona = personas.find((p) => `/${p.profession}` === item.href)
+            if (!persona) return null
+            return (
+              <li key={item.href}>
+                <PersonaCard persona={persona} href={item.href} label={item.label} />
+              </li>
+            )
+          })}
         </ul>
       </Section>
 

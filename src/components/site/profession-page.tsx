@@ -3,8 +3,10 @@ import { CheckIcon } from "lucide-react"
 
 import { CtaSection, PageHeader, PrimaryLink, Section, SectionTitle } from "@/components/site/blocks"
 import { FaqList } from "@/components/site/faq-list"
+import { PersonaStory } from "@/components/site/persona"
 import { Services, Steps } from "@/components/site/services"
 import { faqsById } from "@/content/faq"
+import { getPersona } from "@/content/personas"
 import { getProfession, type Profession } from "@/content/professions"
 
 export function professionMetadata(slug: Profession["slug"]): Metadata {
@@ -31,7 +33,11 @@ export function ProfessionPage({ slug }: { slug: Profession["slug"] }) {
         </div>
       </PageHeader>
 
-      <Section aria-labelledby="needs">
+      <Section aria-labelledby="persona">
+        <PersonaStory persona={getPersona(slug)} />
+      </Section>
+
+      <Section aria-labelledby="needs" className="bg-muted/40">
         <SectionTitle id="needs">{p.needsTitle}</SectionTitle>
         <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {p.needs.map((need) => (
@@ -46,7 +52,7 @@ export function ProfessionPage({ slug }: { slug: Profession["slug"] }) {
         </ul>
       </Section>
 
-      <Section aria-labelledby="leistungen" className="bg-muted/40">
+      <Section aria-labelledby="leistungen">
         <SectionTitle id="leistungen">Was wir für Ihre Praxis machen</SectionTitle>
         <div className="mt-10">
           <Services />
