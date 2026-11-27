@@ -28,7 +28,7 @@ export default function KontaktPage() {
               <li>Wir sprechen über Ihre Praxis und Ihren Alltag.</li>
               <li>Danach wissen Sie, was wir für Sie tun können.</li>
             </ol>
-            <p className="text-sm text-muted-foreground">Praxis digital gemacht ist ein Angebot von Studio Fi, Detmold.</p>
+            <p className="text-sm text-muted-foreground">Praxis digital gemacht ist ein Angebot von Studio Fi, Lage.</p>
           </aside>
         </div>
       </Section>

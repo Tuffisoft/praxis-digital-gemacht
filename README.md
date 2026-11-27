@@ -1,6 +1,6 @@
 # Praxis digital gemacht
 
-Marketing website for **Praxis digital gemacht**, a Studio Fi offer (Detmold): accessible websites for Heilmittelpraxen (Ergotherapie, Logopädie, Physiotherapie, Podologie).
+Marketing website for **Praxis digital gemacht**, a Studio Fi offer (Lage): accessible websites for Heilmittelpraxen (Ergotherapie, Logopädie, Physiotherapie, Podologie).
 
 Stack: Next.js 16 (App Router, Cache Components), shadcn/ui (Base UI), Tailwind CSS 4, Motion, next-themes, Resend. Blog posts and guides are Markdown files edited with Pages CMS.
 

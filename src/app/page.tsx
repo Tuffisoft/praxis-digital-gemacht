@@ -63,7 +63,7 @@ export default function HomePage() {
               hören erst einmal zu.
             </p>
             <p className="mt-6 text-sm text-muted-foreground">
-              Ein Angebot von Studio Fi .
+              Ein Angebot von Studio Fi aus Lage.
             </p>
           </div>
           <div>

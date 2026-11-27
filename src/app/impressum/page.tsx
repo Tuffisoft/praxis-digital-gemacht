@@ -26,7 +26,7 @@ export default function ImpressumPage() {
             <br />
             <Todo>Straße und Hausnummer</Todo>
             <br />
-            <Todo>Postleitzahl</Todo> Detmold
+            <Todo>Postleitzahl</Todo> Lage
           </p>
 
           <h2>Kontakt</h2>
